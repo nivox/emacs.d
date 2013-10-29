@@ -14,3 +14,4 @@ Steps:
 
 2) Recompile all el files
 select the following line and then evalueate it with M-x eval-region
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
