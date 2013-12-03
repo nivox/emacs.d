@@ -48,6 +48,7 @@
 ;; Setup general modes preferences
 (ido-mode 1)
 (windmove-default-keybindings)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (setq inhibit-startup-screen t)
 (setq-default indent-tabs-mode nil) ;Use spaces not tabs!
