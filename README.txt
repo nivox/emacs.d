@@ -1,5 +1,6 @@
 Steps:
  1. Setup .emacs
+ 2. Byte-compile el sources
 
 1) To setup put this in the .emacs:
 
