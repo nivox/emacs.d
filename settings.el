@@ -35,6 +35,8 @@
 (require 'java-conf)
 (require 'haskell-conf)
 
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+
 ;; Setup package.el on Emacs 23
 (if (< emacs-major-version 24)
     (progn
@@ -80,6 +82,9 @@
 ;; Setup imenu mode
 (setq imenu-auto-rescan t)
 (setq imenu-max-item-length 200)
+
+;; MarkDown suffix configuration
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; Setup coding system
 (prefer-coding-system       'utf-8)
