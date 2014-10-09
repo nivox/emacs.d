@@ -28,6 +28,7 @@
 (require 'multi-term-conf)
 (require 'keyboard-conf)
 (require 'keybindings)
+(require 'dired-conf)
 
 ;; Setup language specific feature
 (require 'c-common-conf)
