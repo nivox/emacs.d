@@ -1,8 +1,8 @@
 (provide 'keybindings)
 
 
-(setq my-general-commands '(auto-complete-mode
-                            auto-complete
+(setq my-general-commands '(company-mode
+                            company-complete
                             ido-goto-symbol
                             goto-line
                             upcase-word
@@ -16,8 +16,8 @@
 
 
 ;; Assorted keybindings
-(global-set-key (kbd "<C-tab>") 'auto-complete)
-(global-set-key (kbd "C-c a") 'auto-complete-mode)
+(global-set-key (kbd "<C-tab>") 'company-complete)
+(global-set-key (kbd "C-c a") 'company-mode)
 (global-set-key (kbd "C-c g") 'ido-goto-symbol)
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c c") 'compile)
