@@ -39,3 +39,12 @@
   (imenu-add-to-menubar "SourceNavigation"))
 (add-hook 'java-mode-hook 'my-java-conf)
 (add-hook 'scala-mode-hook 'my-java-conf)
+
+;; Eclim configuration
+(require 'eclim)
+(require 'eclimd)
+(global-eclim-mode)
+
+(custom-set-variables
+  '(eclim-eclipse-dirs '("~/opt/eclipse/"))
+  '(eclim-executable "~/opt/eclipse/eclim"))

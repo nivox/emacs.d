@@ -6,13 +6,14 @@
 ;; Setting load path
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "config"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp"))
-(add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/auto-complete-1.4"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/popup-0.5")) ;; required by auto-complete
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/haskell-mode-13.7"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/javadoc-lookup"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/scala-mode"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/groovy-mode-201203310931"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/multi-term-0.8.8"))
+(add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/company-mode-0.8.6"))
+(add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/emacs-eclim"))
 
 ;; Load specific configuration for gui or terminal
 (if window-system
@@ -29,6 +30,7 @@
 (require 'keyboard-conf)
 (require 'keybindings)
 (require 'dired-conf)
+(require 'company-conf)
 
 ;; Setup language specific feature
 (require 'c-common-conf)
@@ -71,14 +73,6 @@
 ; set browser
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium")
-
-;; Setup AutoComplete mode
-(require 'auto-complete-config)
-(ac-config-default)
-(setq-default ac-sources (append ac-sources '(ac-source-imenu)))
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
-(setq ac-auto-show-menu nil)
-(setq ac-ignore-case nil)
 
 ;; Setup imenu mode
 (setq imenu-auto-rescan t)
