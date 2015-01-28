@@ -9,4 +9,4 @@
 (set-cursor-color "red")
 (setq cursor-type 'box)
 
-(set-face-attribute 'default nil :height 90)
+(set-face-attribute 'default nil :height 110)

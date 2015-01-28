@@ -4,8 +4,7 @@
 (require 'javadoc-lookup)
 
 (require 'java-import)
-(javadoc-add-roots "~/opt/doc/java/api7"
-                   "~/opt/doc/scala/api-2.9.3")
+;(javadoc-add-roots "~/opt/doc/java/api7" "~/opt/doc/scala/api-2.9.3")
 
 (defun my-javadoc-keys ()
   (local-set-key (kbd "C-h j") 'javadoc-lookup)

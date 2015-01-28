@@ -11,7 +11,7 @@
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/javadoc-lookup"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/scala-mode"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/groovy-mode-201203310931"))
-(add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/multi-term-0.8.8"))
+(add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/multi-term"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/company-mode-0.8.6"))
 (add-to-list 'load-path (format "%s/%s" emacs-base-dir "site-elisp/emacs-eclim"))
 
@@ -37,6 +37,8 @@
 (require 'c-conf)
 (require 'java-conf)
 (require 'haskell-conf)
+(require 'php-mode)
+
 
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 
@@ -67,12 +69,25 @@
 (setq truncate-partial-width-windows nil)
 (defalias 'yes-or-no-p 'y-or-n-p) ; don't make me type yes!
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ; don't put backup file (~) everywhere!
 (setq backup-directory-alist `(("." . "~/.emacs-backups")))
 
 ; set browser
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium")
+(defun rcy-browse-url-default-macosx-browser (url &optional new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (let ((url
+         (if (aref (url-generic-parse-url url) 0)
+             url
+           (concat "http://" url))))
+    (start-process (concat "open " url) nil "open" url)))
+
+;;(setq browse-url-browser-function 'browse-url-generic
+;;      browse-url-generic-program "chromium")
+
+(setq browse-url-browser-function 'rcy-browse-url-default-macosx-browser)
 
 ;; Setup imenu mode
 (setq imenu-auto-rescan t)
